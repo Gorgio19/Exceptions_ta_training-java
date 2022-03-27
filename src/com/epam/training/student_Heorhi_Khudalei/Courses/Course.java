@@ -7,9 +7,10 @@ public class Course {
 
     public Course() {
     }
+
     public Course(int grade) throws GradeException {
         this.grade = grade;
-        if(grade>10 || grade<0){
+        if (grade > 10 || grade < 0) {
             throw new GradeException("the grade cannot be negative or more than 10!");
         }
     }

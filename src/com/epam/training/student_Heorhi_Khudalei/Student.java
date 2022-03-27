@@ -1,6 +1,6 @@
 package com.epam.training.student_Heorhi_Khudalei;
 
-import com.epam.training.student_Heorhi_Khudalei.Courses.Course;;
+import com.epam.training.student_Heorhi_Khudalei.Courses.Course;
 import com.epam.training.student_Heorhi_Khudalei.Faculties.Faculty;
 import com.epam.training.student_Heorhi_Khudalei.Faculties.Group;
 import com.epam.training.student_Heorhi_Khudalei.exceptions.CoursesException;
@@ -18,11 +18,11 @@ public class Student {
         this.group = group;
         this.course = course;
 
-        if (course.length == 0){
+        if (course.length == 0) {
             throw new CoursesException("zero courses, please pick up one at least");
         }
 
-        if(!group.getFaculty().equals(this.faculty)){
+        if (!group.getFaculty().equals(this.faculty)) {
             throw new GroupException("the group doesn't belong to the faculty!");
         }
     }

@@ -17,12 +17,12 @@ public class University {
         this.studentList = studentList;
     }
 
-    public double getAverageGradeOfStudentCourses (String name) throws StudentException {
+    public double getAverageGradeOfStudentCourses(String name) throws StudentException {
         int sum = 0;
         int amountOfCourses = 0;
         boolean theStudentExists = false;
-        for (Student student:this.studentList) {
-            if(student.getName().equalsIgnoreCase(name)) {
+        for (Student student : this.studentList) {
+            if (student.getName().equalsIgnoreCase(name)) {
                 theStudentExists = true;
                 for (Course courses : student.getCourse()) {
                     sum += courses.getGrade();
@@ -30,24 +30,24 @@ public class University {
                 }
             }
         }
-        if (!theStudentExists){
+        if (!theStudentExists) {
             throw new StudentException("no such a student");
         }
-        return (double) sum/amountOfCourses;
+        return (double) sum / amountOfCourses;
     }
 
-    public double getAverageGradeByCourseForEntireUniversity(String course){
+    public double getAverageGradeByCourseForEntireUniversity(String course) {
         int sum = 0;
         int coursesCount = 0;
-        for (Student student: this.studentList) {
-            for (Course courses: student.getCourse()){
-                if (courses.toString().equalsIgnoreCase(course)){
-                    sum+= courses.getGrade();
+        for (Student student : this.studentList) {
+            for (Course courses : student.getCourse()) {
+                if (courses.toString().equalsIgnoreCase(course)) {
+                    sum += courses.getGrade();
                     coursesCount++;
                 }
             }
         }
-        return (double) sum/coursesCount;
+        return (double) sum / coursesCount;
     }
 
     public double getAverageByCourseGroupFaculty(String course, Group group, Faculty faculty) throws FacultyException, GroupException {
@@ -55,7 +55,7 @@ public class University {
         int coursesCount = 0;
         boolean groupExists = false;
         boolean facultyExists = false;
-        for (Student student: this.studentList){
+        for (Student student : this.studentList) {
             if (student.getFaculty().equals(faculty)) {
                 facultyExists = true;
                 if (student.getGroup().equals(group)) {
@@ -68,12 +68,13 @@ public class University {
                     }
                 }
             }
-            if (!groupExists){
+            if (!groupExists) {
                 throw new GroupException("no such a group on this faculty!");
             }
-        } if (!facultyExists){
+        }
+        if (!facultyExists) {
             throw new FacultyException("no such a faculty!");
         }
-        return (double) sum/coursesCount;
+        return (double) sum / coursesCount;
     }
 }

@@ -2,7 +2,7 @@ package com.epam.training.student_Heorhi_Khudalei.Courses;
 
 import com.epam.training.student_Heorhi_Khudalei.exceptions.GradeException;
 
-public class Maths extends Course{
+public class Maths extends Course {
 
     public Maths() {
     }
